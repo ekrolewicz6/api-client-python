@@ -21,17 +21,17 @@ Quick Start
 
 List tracks using pagination
 ```python
-data = client->get('tracks', {'page_size': 10, 'page': 2))
+data = client.get('tracks', {'page_size': 10, 'page': 2))
 ```
 
 Retrieve a track by its reference
 ```python
-data = client->get('tracks/reference/foobar')
+data = client.get('tracks/reference/foobar')
 ```
 
 Find tracks by similarity and/or tags
 ```python
-data = client->get('tracks', {
+data = client.get('tracks', {
     'similar_ids': [1234],
     'tag_ids': [21, 41]
 })
@@ -39,7 +39,7 @@ data = client->get('tracks', {
 
 Post a track
 ```python
-data = client->post('tracks', {
+data = client.post('tracks', {
     'title': 'foobar',
     'reference': 'foobar',
     'tags': [21, 41],
