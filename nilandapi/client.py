@@ -54,15 +54,15 @@ class Client(object):
             r.raise_for_status()
         except Exception as e:
             if 400 == r.status_code:
-                raise BadRequestException(r.json())
+                raise BadRequestException(400, r.json())
             elif 401 == r.status_code:
-                raise AuthenticationFailedException()
+                raise AuthenticationFailedException(401)
             elif 403 == r.status_code:
-                raise ForbiddenException()
+                raise ForbiddenException(403)
             elif 404 == r.status_code:
-                raise NotFoundException()
+                raise NotFoundException(404)
             else:
-                raise NilandException()
+                raise NilandException(r.status_code)
 
         if 204 != r.status_code:
             return r.json()
