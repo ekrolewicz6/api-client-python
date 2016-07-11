@@ -8,7 +8,7 @@ To setup your project, follow these steps:
 2. Next you'll have to initialize the client with your API-Key. You can find it on [your Niland API account](https://api.niland.io/2.0/dashboard/your-account).
 
 ```python
-from nilandapi.client import Client
+from pyniland.client import Client
 
 client = Client('YourAPIKey')
 ```

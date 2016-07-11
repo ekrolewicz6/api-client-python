@@ -12,22 +12,14 @@ except ImportError:
 # Allow setup.py to be run from any path
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
-path_readme = os.path.join(os.path.dirname(__file__), 'README.md')
-try:
-    import pypandoc
-    README = pypandoc.convert(path_readme, 'rst')
-except (IOError, ImportError):
-    with open(path_readme) as readme:
-        README = readme.read()
-
 setup(
-    name='nilandapi',
+    name='pyniland',
     version='1.0.0',
     license='MIT License',
-    packages=['nilandapi'],
+    packages=['pyniland'],
     install_requires=['requests[security] >= 2.9.1'],
     description='Niland API Client for Python',
-    long_description=README,
+    long_description='A simple wrapper to Niland HTTP API. Usage and infos on github at : https://github.com/niland/api-client-python',
     author='Niland Team',
     author_email='support@niland.io',
     url='https://github.com/niland/api-client-python',
