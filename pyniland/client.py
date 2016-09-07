@@ -8,11 +8,12 @@ from exceptions import *
 
 class Client(object):
 
-    def __init__(self, api_key):
-        self._base_url = 'https://api.niland.io/2.0/'
+    def __init__(self, api_key, api_base_url='https://api.niland.io', api_version='2.0'):
+        api_base_url = api_base_url.rstrip('/')
+        self._base_url = '%s/%s/' % (api_base_url, api_version)
         self._api_key = api_key
 
-    def get(self, path, params=None):
+    def get(self, path, params={}):
         return self._request('GET', path, params)
 
     def post(self, path, data):
@@ -24,7 +25,7 @@ class Client(object):
     def delete(self, path):
         return self._request('DELETE', path)
 
-    def _request(self, method, path, options=None):
+    def _request(self, method, path, options={}):
         path = path.lstrip('/')
         path = path.rstrip('/')
         params = {'key': self._api_key}
