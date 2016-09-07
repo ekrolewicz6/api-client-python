@@ -14,7 +14,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='pyniland',
-    version='1.0.0',
+    version='1.0.1',
     license='MIT License',
     packages=['pyniland'],
     install_requires=['requests[security] >= 2.9.1'],
